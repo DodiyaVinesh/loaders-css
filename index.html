@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading Animation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .loading {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        box-shadow: 0 0 1px black;
+      }
+
+      /*  Loading Animation 1  */
+      .one .circle {
+        position: absolute;
+        border: 2px solid #444;
+        border-radius: 50%;
+        animation: one 1.5s linear infinite;
+      }
+      .one .c2 {
+        animation-delay: 0.5s;
+      }
+      .one .c3 {
+        animation-delay: 1s;
+      }
+      @keyframes one {
+        0% {
+          width: 0;
+          height: 0;
+          opacity: 0;
+        }
+        50% {
+          width: 40px;
+          height: 40px;
+          opacity: 1;
+        }
+        100% {
+          width: 120px;
+          height: 120px;
+          opacity: 0;
+        }
+      }
+
+      /*  Loading Animation 2  */
+      .two .points {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        animation: two 1.6s ease-in-out infinite;
+        transform: rotate(45deg);
+      }
+      .two .points::after {
+        position: absolute;
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #111aaa;
+      }
+      .two .p2 {
+        animation-delay: 0.1s;
+      }
+      .two .p3 {
+        animation-delay: 0.2s;
+      }
+      .two .p4 {
+        animation-delay: 0.3s;
+      }
+      .two .p5 {
+        animation-delay: 0.4s;
+      }
+      .two .p6 {
+        animation-delay: 0.5s;
+      }
+      .two .p7 {
+        animation-delay: 0.6s;
+      }
+      .two .p8 {
+        animation-delay: 0.7s;
+      }
+      @keyframes two {
+        0% {
+          transform: rotate(45deg);
+        }
+        100% {
+          transform: rotate(405deg);
+        }
+      }
+
+      /*  Loading Animation 3  */
+      .three svg {
+        width: 100px;
+        height: 100px;
+        animation: three 2s linear infinite;
+      }
+      .three svg circle {
+        fill: none;
+        stroke-linecap: round;
+        stroke: #111aaa;
+        stroke-width: 6px;
+        stroke-dasharray: 176; /*perimeter of circle,radius is 28*/
+        stroke-dashoffset: 0;
+        animation: three-circle 1.5s cubic-bezier(0, 0.5, 1, 0.5) infinite;
+      }
+      @keyframes three {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes three-circle {
+        0% {
+          stroke-dashoffset: 352;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /*  Loading Animation 4  */
+      .four .blocks {
+        position: absolute;
+        left: 70px;
+        width: 30px;
+        height: 4px;
+        background: linear-gradient(90deg, black 50%, transparent 50%);
+        animation: four 0.6s linear infinite;
+        transform-origin: top right;
+      }
+      .four .blocks::after {
+        content: "";
+        position: absolute;
+        left: -2px;
+        width: 0;
+        height: 0;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+        border-right: 2px solid black;
+      }
+      .four .b2 {
+        animation-delay: 0.05s;
+        transform: rotate(30deg);
+      }
+      .four .b3 {
+        animation-delay: 0.1s;
+        transform: rotate(60deg);
+      }
+      .four .b4 {
+        animation-delay: 0.15s;
+        transform: rotate(90deg);
+      }
+      .four .b5 {
+        animation-delay: 0.2s;
+        transform: rotate(120deg);
+      }
+      .four .b6 {
+        animation-delay: 0.25s;
+        transform: rotate(150deg);
+      }
+      .four .b7 {
+        animation-delay: 0.3s;
+        transform: rotate(180deg);
+      }
+      .four .b8 {
+        animation-delay: 0.35s;
+        transform: rotate(210deg);
+      }
+      .four .b9 {
+        animation-delay: 0.4s;
+        transform: rotate(240deg);
+      }
+      .four .b10 {
+        animation-delay: 0.45s;
+        transform: rotate(270deg);
+      }
+      .four .b11 {
+        animation-delay: 0.5s;
+        transform: rotate(300deg);
+      }
+      .four .b12 {
+        animation-delay: 0.55s;
+        transform: rotate(330deg);
+      }
+      @keyframes four {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /*  Loading Animation 5  */
+      .five .lines {
+        margin: 3px;
+        width: 5px;
+        height: 0;
+        background-color: #444;
+        animation: five 0.5s linear infinite alternate;
+      }
+      .five .l2 {
+        animation-delay: 0.1s;
+      }
+      .five .l3 {
+        animation-delay: 0.2s;
+      }
+      .five .l4 {
+        animation-delay: 0.3s;
+      }
+      .five .l5 {
+        animation-delay: 0.4s;
+      }
+      @keyframes five {
+        0% {
+          height: 0;
+        }
+        100% {
+          height: 60px;
+        }
+      }
+
+      /*  Loading Animation 6  */
+      .six .text {
+        font-size: 24px;
+      }
+      .six .text::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 28px;
+        background-image: linear-gradient(
+          110deg,
+          transparent 10%,
+          #fffb 20%,
+          transparent 30%
+        );
+        background-size: 800%;
+        animation: six 15s linear infinite;
+      }
+      @keyframes six {
+        0% {
+          background-position: 800%;
+        }
+        100% {
+          background-position: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="loading one">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+      </div>
+      <div class="loading two">
+        <div class="points p1"></div>
+        <div class="points p2"></div>
+        <div class="points p3"></div>
+        <div class="points p4"></div>
+        <div class="points p5"></div>
+        <div class="points p6"></div>
+        <div class="points p7"></div>
+        <div class="points p8"></div>
+      </div>
+      <div class="loading three">
+        <svg>
+          <circle cx="50" cy="50" r="28"></circle>
+        </svg>
+      </div>
+      <div class="loading four">
+        <div class="blocks b1"></div>
+        <div class="blocks b2"></div>
+        <div class="blocks b3"></div>
+        <div class="blocks b4"></div>
+        <div class="blocks b5"></div>
+        <div class="blocks b6"></div>
+        <div class="blocks b7"></div>
+        <div class="blocks b8"></div>
+        <div class="blocks b9"></div>
+        <div class="blocks b10"></div>
+        <div class="blocks b11"></div>
+        <div class="blocks b12"></div>
+      </div>
+      <div class="loading five">
+        <div class="lines l1"></div>
+        <div class="lines l2"></div>
+        <div class="lines l3"></div>
+        <div class="lines l4"></div>
+        <div class="lines l5"></div>
+      </div>
+      <div class="loading six">
+        <div class="text">Loading...</div>
+      </div>
+    </div>
+  </body>
+</html>
